@@ -4,10 +4,10 @@
       <!-- Select: OS -->
       <div class="select-wrapper md:mr-10 mb-4 sm:mb-0">
         <label for="inputOS" class="mr-3 mb-2 sm:mb-0 text-uppercase font-bold"
-          >OS</label
+          >系统</label
         >
         <select id="inputOS" class="form-control" v-model="os">
-          <option selected>Choose...</option>
+          <option selected>选择...</option>
           <option value="mac_intel">macOS (Intel)</option>
           <option value="mac_silicon">macOS (Silicon)</option>
           <option value="win">Windows</option>
@@ -19,10 +19,10 @@
         <label
           for="inputVersion"
           class="mr-3 mb-2 sm:mb-0 text-uppercase font-bold"
-          >Version</label
+          >版本</label
         >
         <select id="inputVersion" class="form-control" v-model="version">
-          <option selected>Choose...</option>
+          <option selected>选择...</option>
           <option v-for="version in versions" :key="version.id">
             {{ version }}
           </option>
@@ -34,10 +34,10 @@
         <label
           for="inputEdition"
           class="mr-3 mb-2 sm:mb-0 text-uppercase font-bold"
-          >Edition</label
+          >版本</label
         >
         <select id="inputEdition" class="form-control" v-model="edition">
-          <option selected>Choose...</option>
+          <option selected>选择...</option>
           <option value="suite">Suite</option>
           <option value="standard">Standard</option>
           <option value="intro">Intro</option>
@@ -50,7 +50,7 @@
         class="btn bg-white text-black hover:opacity-75 transition-color duration-200 uppercase px-3 py-3 sm:py-0 font-bold mt-3 md:mt-0"
         @click.prevent="download"
       >
-        Download
+        下载
       </button>
     </form>
   </div>
@@ -68,9 +68,9 @@ export default {
 
       cdn_path: "https://cdn-downloads.ableton.com/channels/",
       versions: versions,
-      os: "Choose...",
-      edition: "Choose...",
-      version: "Choose...",
+      os: "选择...",
+      edition: "选择...",
+      version: "选择...",
     };
   },
 
@@ -79,11 +79,11 @@ export default {
       let url = this.cdn_path;
 
       if (
-        this.os == "Choose..." ||
-        this.edition == "Choose..." ||
-        this.version == "Choose..."
+        this.os == "选择..." ||
+        this.edition == "选择..." ||
+        this.version == "选择..."
       ) {
-        alert("Please choose an option from each dropdown menu.");
+        alert("请在下拉菜单里选择一个版本");
       } else {
         url += this.version + "/ableton_live_suite_" + this.version;
 
